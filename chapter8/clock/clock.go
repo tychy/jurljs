@@ -1,17 +1,22 @@
 package main
 
 import (
+	"flag"
 	"io"
 	"log"
 	"net"
 	"time"
 )
 
+var port = flag.String("p", "8000", "port")
+
 func main() {
-	listener, err := net.Listen("tcp", "localhost:8020")
+	flag.Parse()
+	listener, err := net.Listen("tcp", "localhost:"+*port)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	for {
 		conn, err := listener.Accept()
 		if err != nil {

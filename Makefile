@@ -10,6 +10,6 @@ chap4:
 
 # chapter 8
 run_clock:
-	go build chapter8/clock/clock1.go
-	./clock1
+	go build chapter8/clock/clock.go
+	./clock -p 8011
 
